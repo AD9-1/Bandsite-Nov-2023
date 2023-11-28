@@ -19,6 +19,7 @@
 
 .navigation {
   height: 100px;
+  width: 100%;
   background-color: #323232;
   display: flex;
   justify-content: space-evenly;
@@ -54,7 +55,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 45vw;
+    width: 35vw;
   }
   .navigation__start a {
     text-decoration: none;
@@ -118,53 +119,94 @@
 @media (max-width: 762px) {
   .hero {
     background-image: url("../assets/images/hero-bio.jpg");
-    height: 500px;
     background-repeat: no-repeat;
     background-size: contain;
-    display: flex;
-    align-items: center;
   }
   .hero__heading {
+    position: absolute;
+    top: 35%;
     margin-left: 3rem;
     font-size: 30px;
     color: white;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+main .musicians {
+  font-size: 50px;
+  padding-top: 48px;
+  padding-bottom: 36px;
+  padding-left: 36px;
+  padding-right: 36px;
+  margin: 0;
+}
+main #musician-image {
+  display: flex;
+  justify-content: center;
+}
+main #musician-image img {
+  height: 500px;
+  width: 750px;
+}
+main .musician {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .musician__dialogue {
+  width: 750px;
+  font-size: 24px;
+  font-weight: 600;
+}
+main .musician__author {
+  width: 750px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0px;
+}
+main .musician__bees-knees {
+  width: 750px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 50px;
+}
+main .musician__colom {
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+main .musician__colom__colom1, main .musician__colom__colom2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+main .photo-galary__heading {
+  font-size: 50px;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+main .photo-galary__photoes {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+main .photo-galary__photoes img {
+  height: 30%;
+  width: 30%;
+  margin-bottom: 2rem;
+}
+@media (max-width: 762px) {
   main .musicians {
     font-size: 50px;
-    padding-top: 48px;
-    padding-bottom: 36px;
-    padding-left: 36px;
-    padding-right: 36px;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     margin: 0;
   }
   main #musician-image {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
   main #musician-image img {
-    height: 500px;
-    width: 750px;
-  }
-  main .musician {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  main .musician__dialogue {
-    width: 750px;
-    font-size: 28px;
-    font-weight: 600;
-  }
-  main .musician__author {
-    width: 750px;
-    font-size: 25px;
-    font-weight: 600;
-    margin: 0px;
-  }
-  main .bees-knees {
-    padding-left: 36px;
-    font-size: 60px;
+    width: 100vw;
   }
 }/*# sourceMappingURL=bio.css.map */
