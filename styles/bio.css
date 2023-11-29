@@ -19,89 +19,52 @@
 
 .navigation {
   height: 100px;
-  width: 100%;
   background-color: #323232;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items: center;
 }
-@media (min-width: 768px) and (max-width: 1279px) {
-  .navigation__start {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 45vw;
-  }
-  .navigation__start a {
-    text-decoration: none;
-  }
-  .navigation__bandsite a img {
-    width: 120px;
-    height: 20px;
-  }
-  .navigation__biography p {
-    font-size: 20px;
-    font-weight: 400;
-    color: white;
-  }
-  .navigation__middle {
-    width: 30vw;
-  }
-  .navigation__end {
-    width: 25vw;
-  }
+.navigation__bandsite {
+  margin-left: 6vw;
+  margin-right: 4vw;
 }
-@media (min-width: 1280px) {
-  .navigation__start {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 35vw;
-  }
-  .navigation__start a {
-    text-decoration: none;
-  }
-  .navigation__bandsite a img {
-    width: 120px;
-    height: 20px;
-  }
-  .navigation__biography p {
-    font-size: 18px;
-    color: white;
-  }
-  .navigation__middle {
-    width: 30vw;
-  }
-  .navigation__end {
-    width: 25vw;
-  }
+.navigation__biography, .navigation__shows {
+  margin-left: 4vw;
+  margin-right: 4vw;
 }
-@media (max-width: 762px) {
-  .navigation__start {
+.navigation__biography a, .navigation__shows a {
+  text-decoration: none;
+}
+.navigation__biography a p, .navigation__shows a p {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .navigation {
+    height: 130px;
+    background-color: #323232;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100vw;
   }
   .navigation__bandsite {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    margin-top: 5vh;
+    width: 100%;
   }
-  .navigation__start a {
+  .navigation__bandsite img {
+    height: 30px;
+  }
+  .navigation__biography a, .navigation__shows a {
     text-decoration: none;
   }
-  .navigation__bandsite a img {
-    padding-top: 1rem;
-    width: 120px;
-    height: 20px;
-  }
-  .navigation__biography p {
-    font-size: 18px;
+  .navigation__biography a p, .navigation__shows a p {
     color: white;
+    font-size: 20px;
   }
 }
-
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   height: 500px;
@@ -116,15 +79,16 @@
   color: white;
 }
 
-@media (max-width: 762px) {
+@media (max-width: 767px) {
   .hero {
     background-image: url("../assets/images/hero-bio.jpg");
+    display: flex;
+    align-items: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
   }
   .hero__heading {
-    position: absolute;
-    top: 35%;
     margin-left: 3rem;
     font-size: 30px;
     color: white;
@@ -188,13 +152,12 @@ main .photo-galary__photoes {
   flex-wrap: wrap;
 }
 main .photo-galary__photoes img {
-  height: 30%;
   width: 30%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
-@media (max-width: 762px) {
+@media (max-width: 767px) {
   main .musicians {
-    font-size: 50px;
+    font-size: 24px;
     padding-top: 24px;
     padding-bottom: 16px;
     padding-left: 16px;
@@ -207,6 +170,156 @@ main .photo-galary__photoes img {
     margin-right: 16px;
   }
   main #musician-image img {
-    width: 100vw;
+    max-width: 100%;
+  }
+  main .musician {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  main .musician__dialogue, main .musician__author {
+    font-weight: 700;
+    font-size: 14px;
+    max-width: 100%;
+  }
+  main .musician__bees-knees {
+    max-width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 2rem;
+  }
+  main .musician__colom {
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  main .musician__colom__colom1, main .musician__colom__colom2 {
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  main .photo-galary {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+  }
+  main .photo-galary__heading {
+    padding: 0;
+    font-size: 24px;
+  }
+  main .photo-galary__photoes {
+    display: flex;
+    flex-direction: column;
+  }
+  main .photo-galary__photoes img {
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: #323232;
+}
+footer .footer-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-upper__left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-upper__left__h1 {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+}
+footer .footer-upper__left img {
+  margin-right: 2rem;
+  height: 30px;
+}
+footer .footer-upper__right {
+  width: 20%;
+}
+footer .footer-middle {
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+footer .footer-middle__left__first {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__left__second {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__left__third {
+  font-weight: 400;
+}
+footer .footer-middle__center__first {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__center__second {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__center__third {
+  font-weight: 400;
+}
+footer .footer-middle__right__first {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__right__second {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+footer .footer-middle__right__third {
+  font-weight: 400;
+}
+footer .footer-lower {
+  font-size: 14px;
+  color: white;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 2rem;
+}
+@media (max-width: 767px) {
+  footer .footer-upper__left {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  footer .footer-upper__left__h1 {
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+  }
+  footer .footer-upper__left img {
+    margin-left: 3.5vw;
+    height: 18px;
+  }
+  footer .footer-upper__right {
+    display: none;
+  }
+  footer .footer-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  footer .footer-lower__logo {
+    background-image: url("../assets/logos/Logo-bandsite.svg");
+    height: 20px;
+    width: 120px;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }/*# sourceMappingURL=bio.css.map */
