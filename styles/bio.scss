@@ -22,9 +22,10 @@ $bandsite-black: #323232;
     margin-right: 4vw;
     a {
       text-decoration: none;
-      p {
-        color: white;
-      }
+      color: white;
+    }
+    a:hover {
+      font-weight: 700;
     }
   }
 }
@@ -49,10 +50,8 @@ $bandsite-black: #323232;
     &__shows {
       a {
         text-decoration: none;
-        p {
-          color: white;
-          font-size: 20px;
-        }
+        color: white;
+        font-size: 20px;
       }
     }
   }
@@ -101,10 +100,15 @@ main {
   #musician-image {
     display: flex;
     justify-content: center;
-  }
-  #musician-image img {
-    height: 500px;
-    width: 750px;
+    img {
+      height: 500px;
+      width: 750px;
+      -webkit-transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-in-out;
+    }
+    img:hover {
+      -webkit-transform: scale(1.1);
+    }
   }
 
   .musician {
@@ -155,6 +159,11 @@ main {
       img {
         width: 30%;
         margin-bottom: 1rem;
+        -webkit-transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-in-out;
+      }
+      img:hover {
+        transform: scale(1.1);
       }
     }
   }
@@ -172,8 +181,14 @@ main {
       margin-bottom: 16px;
       margin-left: 16px;
       margin-right: 16px;
+
       img {
         max-width: 100%;
+        -webkit-transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-in-out;
+      }
+      img:hover {
+        transform: scale(1.1);
       }
     }
     .musician {
@@ -217,13 +232,18 @@ main {
         flex-direction: column;
         img {
           width: 100%;
+          -webkit-transition-duration: 0.3s;
+          -webkit-transition-timing-function: ease-in-out;
+        }
+        img:hover {
+          transform: scale(1.1);
         }
       }
     }
   }
 }
+
 footer {
-  //height: 400px;
   background-color: $bandsite-black;
   .footer-upper {
     display: flex;
@@ -243,6 +263,11 @@ footer {
       img {
         margin-right: 2rem;
         height: 30px;
+        -webkit-transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-in-out;
+      }
+      img:hover {
+        transform: scale(1.3);
       }
     }
     &__right {
@@ -318,6 +343,11 @@ footer {
         img {
           margin-left: 3.5vw;
           height: 18px;
+          -webkit-transition-duration: 0.3s;
+          -webkit-transition-timing-function: ease-in-out;
+        }
+        img:hover {
+          transform: scale(1.6);
         }
       }
       &__right {
