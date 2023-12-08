@@ -20,12 +20,17 @@ $bandsite-black: #323232;
   &__shows {
     margin-left: 4vw;
     margin-right: 4vw;
+
     a {
       text-decoration: none;
       color: white;
+      padding-bottom: 10px;
     }
     a:hover {
       font-weight: 700;
+    }
+    .nav__link--active {
+      border-bottom: rgb(255, 255, 255) 2px solid;
     }
   }
 }
@@ -52,6 +57,10 @@ $bandsite-black: #323232;
         text-decoration: none;
         color: white;
         font-size: 20px;
+        padding-bottom: 10px;
+      }
+      .nav__link--active {
+        border-bottom: white 2px solid;
       }
     }
   }
@@ -150,7 +159,6 @@ main {
     &__heading {
       font-size: 50px;
       padding-left: 36px;
-      padding-right: 36px;
     }
     &__photoes {
       display: flex;
@@ -164,6 +172,86 @@ main {
       }
       img:hover {
         transform: scale(1.1);
+      }
+    }
+  }
+  .join-the-conv {
+    h1 {
+      font-size: 50px;
+      padding-left: 36px;
+    }
+    &__authors {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__new {
+        width: 48vw;
+
+        p {
+          width: 40%;
+          margin-inline-start: 18%;
+          font-size: 13px;
+          color: #32323272;
+          font-weight: bold;
+          margin-bottom: 4px;
+          margin-top: 20px;
+        }
+        input {
+          width: 60%;
+          height: 48px;
+          margin-inline-start: 18%;
+          border: 1px solid $bandsite-black;
+          padding: 16px;
+        }
+
+        button {
+          background-color: #323232;
+          color: white;
+
+          margin-top: 30px;
+          margin-left: 67%;
+          margin-bottom: 30px;
+          padding: 0.5rem;
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+      &__existing {
+        width: 48vw;
+        &__first {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          &__img {
+            width: 11%;
+          }
+          &__author,
+          .name-date {
+            width: 89%;
+            &__divide {
+              display: flex;
+              justify-content: space-between;
+              width: 82%;
+              p {
+                font-size: 13px;
+                font-weight: 700;
+              }
+              span {
+                margin-top: 16px;
+                font-size: 13px;
+                font-weight: 400;
+                color: #32323272;
+              }
+            }
+            &__comment {
+              font-size: 13px;
+              font-weight: 400;
+              margin-top: 0%;
+              width: 80%;
+            }
+          }
+        }
       }
     }
   }

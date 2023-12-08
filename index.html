@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/bio.css" />
+
     <title>Bandsite-home</title>
   </head>
   <body>
@@ -16,13 +17,11 @@
           /></a>
         </div>
         <div class="navigation__biography">
-          <a href="">Biography</a>
+          <a href="./index.html" class="nav__link--active">Biography</a>
         </div>
         <div class="navigation__shows">
-          <a href=""> Shows</a>
+          <a href="./pages/shows.html"> Shows</a>
         </div>
-        <!-- <div class="navigation__middle"></div>
-        <div class="navigation__end"></div> -->
       </nav>
       <div class="hero">
         <h1 class="hero__heading">The Bees Knees</h1>
@@ -84,6 +83,85 @@
           <img src="./assets/images/Photo-gallery-9.jpg" />
         </section>
       </section>
+      <section class="join-the-conv">
+        <h1>Join The Conversation</h1>
+        <section class="join-the-conv__authors">
+          <div class="join-the-conv__authors__new">
+            <form method="get" action="" class="authors-new-form">
+              <p>NAME</p>
+              <input type="text" placeholder="Enter your Name" name="name" />
+              <p>COMMENT</p>
+              <input type="text" placeholder="Comment" name="comment" />
+              <button type="submit">COMMENT</button>
+            </form>
+
+            <hr />
+          </div>
+
+          <div class="join-the-conv__authors__existing">
+            <ul>
+              <li class="join-the-conv__authors__existing__first">
+                <div class="join-the-conv__authors__existing__first__img"></div>
+                <div
+                  class="join-the-conv__authors__existing__first__author name-date"
+                >
+                  <div class="name-date__divide">
+                    <p>Connor Walton</p>
+                    <span>02/17/2021</span>
+                  </div>
+                  <p
+                    class="join-the-conv__authors__existing__first__author__comment"
+                  >
+                    This is art. This is inexplicable magic expressed in the
+                    purest way, everything that makes up this majestic work
+                    deserves reverence. Let us appreciate this for what it is
+                    and what it contains.
+                  </p>
+                </div>
+              </li>
+              <hr />
+              <li class="join-the-conv__authors__existing__first">
+                <div class="join-the-conv__authors__existing__first__img"></div>
+                <div
+                  class="join-the-conv__authors__existing__first__author name-date"
+                >
+                  <div class="name-date__divide">
+                    <p>Emilie Beach</p>
+                    <span>01/09/2021</span>
+                  </div>
+                  <p
+                    class="join-the-conv__authors__existing__first__author__comment"
+                  >
+                    I feel blessed to have seen them in person. What a show!
+                    They were just perfection. If there was one day of my life I
+                    could relive, this would be it. What an incredible day.
+                  </p>
+                </div>
+              </li>
+              <hr />
+              <li class="join-the-conv__authors__existing__first">
+                <div class="join-the-conv__authors__existing__first__img"></div>
+                <div
+                  class="join-the-conv__authors__existing__first__author name-date"
+                >
+                  <div class="name-date__divide">
+                    <p>Miles Acosta</p>
+                    <span>12/20/2020</span>
+                  </div>
+                  <p
+                    class="join-the-conv__authors__existing__first__author__comment"
+                  >
+                    I can't stop listening. Every time I hear one of their songs
+                    - the vocals - it gives me goosebumps. Shivers straight down
+                    my spine. What a beautiful expression of creativity. Can't
+                    get enough.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>
     </main>
 
     <footer>
@@ -143,6 +221,7 @@
         <a href="./index.html"><div class="footer-lower__logo"></div></a>
         <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
       </article>
+      <script src="/scripts/index-page.js"></script>
     </footer>
   </body>
 </html>

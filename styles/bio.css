@@ -35,9 +35,13 @@
 .navigation__biography a, .navigation__shows a {
   text-decoration: none;
   color: white;
+  padding-bottom: 10px;
 }
 .navigation__biography a:hover, .navigation__shows a:hover {
   font-weight: 700;
+}
+.navigation__biography .nav__link--active, .navigation__shows .nav__link--active {
+  border-bottom: rgb(255, 255, 255) 2px solid;
 }
 
 @media (max-width: 767px) {
@@ -62,6 +66,10 @@
     text-decoration: none;
     color: white;
     font-size: 20px;
+    padding-bottom: 10px;
+  }
+  .navigation__biography .nav__link--active, .navigation__shows .nav__link--active {
+    border-bottom: white 2px solid;
   }
 }
 .hero {
@@ -148,7 +156,6 @@ main .musician__colom__colom1, main .musician__colom__colom2 {
 main .photo-galary__heading {
   font-size: 50px;
   padding-left: 36px;
-  padding-right: 36px;
 }
 main .photo-galary__photoes {
   display: flex;
@@ -163,6 +170,84 @@ main .photo-galary__photoes img {
 }
 main .photo-galary__photoes img:hover {
   transform: scale(1.1);
+}
+main .join-the-conv h1 {
+  font-size: 50px;
+  padding-left: 36px;
+}
+main .join-the-conv__authors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .join-the-conv__authors__new {
+  width: 48vw;
+}
+main .join-the-conv__authors__new p {
+  width: 40%;
+  margin-inline-start: 18%;
+  font-size: 13px;
+  color: rgba(50, 50, 50, 0.4470588235);
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 20px;
+}
+main .join-the-conv__authors__new input {
+  width: 60%;
+  height: 48px;
+  margin-inline-start: 18%;
+  border: 1px solid #323232;
+  padding: 16px;
+}
+main .join-the-conv__authors__new button {
+  background-color: #323232;
+  color: white;
+  margin-top: 30px;
+  margin-left: 67%;
+  margin-bottom: 30px;
+  padding: 0.5rem;
+  font-size: 15px;
+  font-weight: 600;
+}
+main .join-the-conv__authors__existing {
+  width: 48vw;
+}
+main .join-the-conv__authors__existing__first {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+main .join-the-conv__authors__existing__first__img {
+  width: 11%;
+}
+main .join-the-conv__authors__existing__first__author,
+main .join-the-conv__authors__existing__first .name-date {
+  width: 89%;
+}
+main .join-the-conv__authors__existing__first__author__divide,
+main .join-the-conv__authors__existing__first .name-date__divide {
+  display: flex;
+  justify-content: space-between;
+  width: 82%;
+}
+main .join-the-conv__authors__existing__first__author__divide p,
+main .join-the-conv__authors__existing__first .name-date__divide p {
+  font-size: 13px;
+  font-weight: 700;
+}
+main .join-the-conv__authors__existing__first__author__divide span,
+main .join-the-conv__authors__existing__first .name-date__divide span {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(50, 50, 50, 0.4470588235);
+}
+main .join-the-conv__authors__existing__first__author__comment,
+main .join-the-conv__authors__existing__first .name-date__comment {
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 0%;
+  width: 80%;
 }
 @media (max-width: 767px) {
   main .musicians {
