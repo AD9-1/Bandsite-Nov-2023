@@ -1,10 +1,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/fonts" as *;
 
-$bandsite-black: #323232;
-* {
-  font-family: "Avenir";
-}
 .navigation {
   height: 100px;
   background-color: $bandsite-black;
@@ -42,6 +38,7 @@ $bandsite-black: #323232;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+
     &__bandsite {
       display: flex;
       justify-content: center;
@@ -53,6 +50,10 @@ $bandsite-black: #323232;
     }
     &__biography,
     &__shows {
+      width: 50%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
       a {
         text-decoration: none;
         color: white;
@@ -65,24 +66,13 @@ $bandsite-black: #323232;
     }
   }
 }
-
-.hero {
-  background-image: url("../assets/images/hero-bio.jpg");
-  height: 500px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-
-  &__heading {
-    margin-left: 3rem;
-    font-size: 60px;
-    color: white;
-  }
-}
 @include mobile {
   .hero {
-    background-image: url("../assets/images/hero-bio.jpg");
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.388),
+        rgba(0, 0, 0, 0.347)
+      ),
+      url("../assets/images/hero-bio.jpg");
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
@@ -96,6 +86,21 @@ $bandsite-black: #323232;
     }
   }
 }
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.388), rgba(0, 0, 0, 0.347)),
+    url("../assets/images/hero-bio.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  &__heading {
+    margin-left: 3rem;
+    font-size: 60px;
+    color: white;
+  }
+}
 
 main {
   .musicians {
@@ -106,7 +111,7 @@ main {
     padding-right: 36px;
     margin: 0;
   }
-  #musician-image {
+  .musician-image {
     display: flex;
     justify-content: center;
     img {
@@ -175,86 +180,6 @@ main {
       }
     }
   }
-  .join-the-conv {
-    h1 {
-      font-size: 50px;
-      padding-left: 36px;
-    }
-    &__authors {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      &__new {
-        width: 48vw;
-
-        p {
-          width: 40%;
-          margin-inline-start: 18%;
-          font-size: 13px;
-          color: #32323272;
-          font-weight: bold;
-          margin-bottom: 4px;
-          margin-top: 20px;
-        }
-        input {
-          width: 60%;
-          height: 48px;
-          margin-inline-start: 18%;
-          border: 1px solid $bandsite-black;
-          padding: 16px;
-        }
-
-        button {
-          background-color: #323232;
-          color: white;
-
-          margin-top: 30px;
-          margin-left: 67%;
-          margin-bottom: 30px;
-          padding: 0.5rem;
-          font-size: 15px;
-          font-weight: 600;
-        }
-      }
-      &__existing {
-        width: 48vw;
-        &__first {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          &__img {
-            width: 11%;
-          }
-          &__author,
-          .name-date {
-            width: 89%;
-            &__divide {
-              display: flex;
-              justify-content: space-between;
-              width: 82%;
-              p {
-                font-size: 13px;
-                font-weight: 700;
-              }
-              span {
-                margin-top: 16px;
-                font-size: 13px;
-                font-weight: 400;
-                color: #32323272;
-              }
-            }
-            &__comment {
-              font-size: 13px;
-              font-weight: 400;
-              margin-top: 0%;
-              width: 80%;
-            }
-          }
-        }
-      }
-    }
-  }
   @include mobile {
     .musicians {
       font-size: 24px;
@@ -265,11 +190,10 @@ main {
       margin: 0;
     }
 
-    #musician-image {
+    .musician-image {
       margin-bottom: 16px;
       margin-left: 16px;
       margin-right: 16px;
-
       img {
         max-width: 100%;
         -webkit-transition-duration: 0.3s;
@@ -329,8 +253,123 @@ main {
       }
     }
   }
-}
+  .join-the-conv {
+    h1 {
+      font-size: 50px;
+      padding-left: 36px;
+    }
+    &__authors {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
+      &__new {
+        width: 48vw;
+
+        p {
+          width: 40%;
+          margin-inline-start: 18%;
+          font-size: 13px;
+          color: $silver;
+          font-weight: 700;
+          margin-bottom: 4px;
+          margin-top: 20px;
+        }
+        input {
+          width: 60%;
+          height: 48px;
+          margin-inline-start: 18%;
+          border: 1px solid $mercury;
+          padding: 16px;
+        }
+        input:active {
+          border: 1px solid $bandsite-black;
+        }
+        .contentfield {
+          border: 1px solid #d22d2d;
+        }
+
+        button {
+          background-color: $bandsite-black;
+          color: white;
+          margin-top: 30px;
+          margin-left: 59%;
+          margin-bottom: 15px;
+          padding-left: 32px;
+          padding-right: 32px;
+          font-size: 15px;
+          font-weight: 600;
+          width: 150px;
+          height: 40px;
+          border-radius: 4px;
+        }
+        button:hover {
+          background-color: black;
+        }
+      }
+      @include mobile {
+        &__new {
+          width: 100vw;
+          button {
+            margin-left: 18%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 65vw;
+            height: 40px;
+          }
+          button:hover {
+            background-color: black;
+          }
+        }
+      }
+      &__existing {
+        width: 48vw;
+        .author-list {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          &__img {
+            width: 48px;
+            height: 48px;
+            background-color: $mercury;
+            border-radius: 50%;
+          }
+
+          .name-date {
+            width: 89%;
+
+            &__divide {
+              display: flex;
+              justify-content: space-between;
+              width: 82%;
+              p {
+                font-size: 13px;
+                font-weight: 700;
+              }
+              span {
+                margin-top: 16px;
+                font-size: 13px;
+                font-weight: 400;
+                color: $silver;
+              }
+            }
+          }
+          &__comment {
+            font-size: 13px;
+            font-weight: 400;
+            margin-top: 0%;
+            width: 80%;
+          }
+        }
+      }
+      @include mobile {
+        &__existing {
+          width: 100vw;
+        }
+      }
+    }
+  }
+}
 footer {
   background-color: $bandsite-black;
   .footer-upper {
@@ -370,33 +409,7 @@ footer {
     align-items: center;
     margin-left: 3vw;
     margin-right: 3vw;
-    &__left {
-      &__first {
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
-      &__second {
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-      }
-      &__third {
-        font-weight: 400;
-      }
-    }
-    &__center {
-      &__first {
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
-      &__second {
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-      }
-      &__third {
-        font-weight: 400;
-      }
-    }
-    &__right {
+    .footer-component {
       &__first {
         font-weight: 600;
         margin-bottom: 1.5rem;

@@ -72,13 +72,13 @@ $bandsite-black: #323232;
 }
 
 .hero {
-  background-image: url("../assets/images/hero-shows.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.285), rgba(0, 0, 0, 0.336)),
+    url("../assets/images/hero-shows.jpg");
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
-  //opacity: 50%;
   justify-content: space-around;
   color: white;
 
@@ -102,7 +102,11 @@ $bandsite-black: #323232;
 }
 @include tablet {
   .hero {
-    background-image: url("../assets/images/hero-shows.jpg");
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.388),
+        rgba(0, 0, 0, 0.347)
+      ),
+      url("../assets/images/hero-shows.jpg");
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,7 +136,11 @@ $bandsite-black: #323232;
 }
 @include mobile {
   .hero {
-    background-image: url("../assets/images/hero-shows.jpg");
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.388),
+        rgba(0, 0, 0, 0.347)
+      ),
+      url("../assets/images/hero-shows.jpg");
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -160,171 +168,180 @@ $bandsite-black: #323232;
     }
   }
 }
-main {
-  @include desktop {
-    .show {
-      font-size: 36px;
-      font-weight: 700;
-      margin-left: 7%;
-      margin-bottom: 0%;
+
+@include mobile {
+  .show {
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 0px;
+    margin-bottom: 0;
+  }
+  .show-time {
+    ul {
+      padding: 0px;
     }
-    .show-time {
-      &__list {
-        display: flex;
-        justify-content: flex-end;
-        border-bottom: 1px solid #32323244;
+    &__list {
+      border-bottom: 1px solid $mercury;
+      display: flex;
 
-        .show-time__elements {
-          display: none;
-        }
-        &:first-child {
-          .show-time__elements {
-            display: block;
-          }
-        }
-      }
-      .show-time__list:first-child {
-        .show-time__blank {
-          height: 16px;
-        }
-      }
-
-      &__div {
-        width: 20%;
-        button {
-          background-color: #323232;
-          color: white;
-          width: 60%;
-          border: 1px solid black;
-          border-radius: 3px;
-          padding: 6px;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-      }
-      &__elements {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__div {
+      width: 100%;
+      button {
+        background-color: $bandsite-black;
+        color: white;
+        width: 100%;
+        border: 1px solid $bandsite-black;
+        border-radius: 3px;
+        padding: 15px;
         font-weight: 600;
-        color: #32323265;
-        font-size: 13px;
         margin-bottom: 20px;
-
-        &__value {
-          font-size: 13px;
-          font-weight: 400;
-          color: black;
-        }
-        &__date {
-          font-size: 13px;
-          font-weight: 600;
-        }
       }
+    }
+    &__elements {
+      font-weight: 600;
+      color: $silver;
+      font-size: 13px;
+      margin-bottom: 0px;
+
+      &__value {
+        font-size: 19px;
+        font-weight: 400;
+        color: $bandsite-black;
+        margin-top: 10px;
+      }
+    }
+    &__list-selected {
+      background-color: $mercury;
     }
   }
-  @include tablet {
-    .show {
-      font-size: 36px;
-      font-weight: 700;
-      margin-left: 7%;
-      margin-bottom: 0%;
+  .show-time__elements__date {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+}
+@include tablet {
+  .show {
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 7%;
+    margin-bottom: 0%;
+  }
+  .show-time {
+    &__list {
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid $mercury;
     }
-    .show-time {
-      &__list {
-        display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid #32323244;
+    &__elements {
+      display: none;
+    }
+    &__list:first-child {
+      .show-time__elements {
+        display: block;
       }
-      &__elements {
+    }
+    .show-time__list:first-child {
+      .show-time__blank {
+        height: 24px;
+      }
+    }
+    &__div {
+      width: 20%;
+      button {
+        background-color: $bandsite-black;
+        color: white;
+        width: 100%;
+        border: 1px solid $bandsite-black;
+        border-radius: 3px;
+        padding: 8px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+    }
+    &__elements {
+      font-weight: 600;
+      color: $silver;
+      font-size: 20px;
+      margin-bottom: 20px;
+
+      &__value {
+        font-size: 20px;
+        font-weight: 400;
+        color: $bandsite-black;
+      }
+    }
+    &__list-selected {
+      background-color: $mercury;
+    }
+  }
+  .show-time__elements__date {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+@include desktop {
+  .show {
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 7%;
+    margin-bottom: 0%;
+  }
+  .show-time {
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 1px solid $mercury;
+
+      .show-time__elements {
         display: none;
       }
-      &__list:first-child {
+      &:first-child {
         .show-time__elements {
           display: block;
         }
       }
-      .show-time__list:first-child {
-        .show-time__blank {
-          height: 24px;
-        }
+    }
+    .show-time__list:first-child {
+      .show-time__blank {
+        height: 20px;
       }
-      &__div {
-        width: 20%;
-        button {
-          background-color: #323232;
-          color: white;
-          width: 100%;
-          border: 1px solid black;
-          border-radius: 3px;
-          padding: 8px;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-      }
-      &__elements {
-        font-weight: 600;
-        color: #32323265;
-        font-size: 20px;
-        margin-bottom: 20px;
+    }
 
-        &__value {
-          font-size: 20px;
-          font-weight: 400;
-          color: black;
-        }
-      }
-    }
-    .show-time__elements__date {
-      font-size: 20px;
-      font-weight: 600;
-    }
-  }
-  @include mobile {
-    .show {
-      font-size: 36px;
-      font-weight: 700;
-      margin-left: 0px;
-      margin-bottom: 0;
-    }
-    .show-time {
-      ul {
-        padding: 0px;
-      }
-      &__list {
-        border-bottom: 1px solid #32323244;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      &__div {
-        width: 100%;
-        button {
-          background-color: #323232;
-          color: white;
-          width: 100%;
-          border: 1px solid black;
-          border-radius: 3px;
-          padding: 15px;
-          font-weight: 600;
-          margin-bottom: 20px;
-        }
-      }
-      &__elements {
+    &__div {
+      width: 20%;
+      button {
+        background-color: $bandsite-black;
+        color: white;
+        width: 60%;
+        border: 1px solid $bandsite-black;
+        border-radius: 3px;
+        padding: 6px;
         font-weight: 600;
-        color: #32323265;
+        margin-bottom: 10px;
+      }
+    }
+    &__elements {
+      font-weight: 600;
+      color: $silver;
+      font-size: 13px;
+      margin-bottom: 20px;
+
+      &__value {
         font-size: 13px;
-        margin-bottom: 0px;
-
-        &__value {
-          font-size: 19px;
-          font-weight: 400;
-          color: black;
-          margin-top: 10px;
-        }
+        font-weight: 400;
+        color: $bandsite-black;
+      }
+      &__date {
+        font-size: 13px;
+        font-weight: 600;
       }
     }
-    .show-time__elements__date {
-      font-size: 19px;
-      font-weight: 600;
-      margin-top: 10px;
+    &__list-selected {
+      background-color: $mercury;
     }
   }
 }
@@ -368,33 +385,7 @@ footer {
     align-items: center;
     margin-left: 3vw;
     margin-right: 3vw;
-    &__left {
-      &__first {
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
-      &__second {
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-      }
-      &__third {
-        font-weight: 400;
-      }
-    }
-    &__center {
-      &__first {
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
-      &__second {
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-      }
-      &__third {
-        font-weight: 400;
-      }
-    }
-    &__right {
+    .footer-component {
       &__first {
         font-weight: 600;
         margin-bottom: 1.5rem;

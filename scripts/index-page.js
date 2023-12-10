@@ -18,49 +18,51 @@ const existing_author = [
       "I can't stop listening. Every time I hear one of their songs- the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
-document.getElementsByClassName("name-date__divide");
 
 let author_new_form = document.querySelector(".authors-new-form");
 let ul = document.querySelector("ul");
+let ip;
 
 author_new_form.addEventListener("submit", (event) => {
   console.log("The name is : ", event.target.name.value);
   console.log("The comment is : ", event.target.comment.value);
   event.preventDefault();
-  const new_author = {
-    name: event.target.name.value,
-    date:
-      new Date().getMonth() +
-      "/" +
-      new Date().getDate() +
-      "/" +
-      new Date().getFullYear(),
-    comment: event.target.comment.value,
-  };
-  existing_author.push(new_author);
-  pushAuthor(existing_author);
+
+  if (!event.target.name.value || !event.target.comment.value) {
+    errorForm();
+  } else {
+    ip.forEach((ip1) => ip1.classList.remove("contentfield"));
+    const new_author = {
+      name: event.target.name.value,
+      date:
+        new Date().getMonth() +
+        "/" +
+        new Date().getDate() +
+        "/" +
+        new Date().getFullYear(),
+      comment: event.target.comment.value,
+    };
+    existing_author.push(new_author);
+    event.target.name.value = "";
+    event.target.comment.value = "";
+    pushAuthor();
+  }
 });
 
-pushAuthor = (existing_author) => {
+pushAuthor = () => {
   ul.innerHTML = "";
-
-  // TODO sort the array before looping, sort by date
 
   existing_author.forEach((element) => {
     const li_element = document.createElement("li");
-    li_element.classList.add("join-the-conv__authors__existing__first");
+    li_element.classList.add("author-list");
 
     const div_element_img = document.createElement("div");
-    div_element_img.classList.add(
-      "join-the-conv__authors__existing__first__img"
-    );
+    div_element_img.classList.add("author-list__img");
 
     li_element.appendChild(div_element_img);
 
     const div_element_name_date_comment = document.createElement("div");
-    div_element_name_date_comment.classList.add(
-      "join-the-conv__authors__existing__first__author"
-    );
+    div_element_name_date_comment.classList.add("author-list__content");
     div_element_name_date_comment.classList.add("name-date");
     const div_element2 = document.createElement("div");
     div_element2.classList.add("name-date__divide");
@@ -76,9 +78,7 @@ pushAuthor = (existing_author) => {
     div_element_name_date_comment.appendChild(div_element2);
 
     const p_element_comment = document.createElement("p");
-    p_element_comment.classList.add(
-      "join-the-conv__authors__existing__first__author__comment"
-    );
+    p_element_comment.classList.add("author-list__comment");
     p_element_comment.innerText = element.comment;
 
     div_element_name_date_comment.appendChild(p_element_comment);
@@ -88,3 +88,9 @@ pushAuthor = (existing_author) => {
     ul.prepend(li_element);
   });
 };
+errorForm = () => {
+  ip = document.querySelectorAll("input");
+  ip.forEach((ip1) => ip1.classList.add("contentfield"));
+};
+
+pushAuthor();
