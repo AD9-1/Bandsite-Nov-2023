@@ -31,7 +31,9 @@ author_new_form.addEventListener("submit", (event) => {
   if (!event.target.name.value || !event.target.comment.value) {
     errorForm();
   } else {
-    ip.forEach((ip1) => ip1.classList.remove("contentfield"));
+    if (ip.length > 0) {
+      ip.forEach((ip1) => ip1.classList.remove("contentfield"));
+    }
     const new_author = {
       name: event.target.name.value,
       date:
