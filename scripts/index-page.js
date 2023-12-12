@@ -21,7 +21,7 @@ const existing_author = [
 
 let author_new_form = document.querySelector(".authors-new-form");
 let ul = document.querySelector("ul");
-let ip;
+let ip = [];
 
 author_new_form.addEventListener("submit", (event) => {
   console.log("The name is : ", event.target.name.value);
@@ -31,9 +31,10 @@ author_new_form.addEventListener("submit", (event) => {
   if (!event.target.name.value || !event.target.comment.value) {
     errorForm();
   } else {
-    if (ip.length > 0) {
+    if (ip.length) {
       ip.forEach((ip1) => ip1.classList.remove("contentfield"));
     }
+
     const new_author = {
       name: event.target.name.value,
       date:
