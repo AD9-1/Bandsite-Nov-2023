@@ -1,29 +1,24 @@
-function appendchild() {
-  const shows = [
-    {
-      date: "Fri Oct 15 2021",
-      venue: "View Lounge",
-      location: "San Francisco,CA",
-    },
-    {
-      date: "Sat Nov 06 2021",
-      venue: "Hyatt Agency",
-      location: "San Francisco,CA",
-    },
-    {
-      date: "Fri Nov 26 2021",
-      venue: "Moscow Center",
-      location: "San Francisco,CA",
-    },
-    {
-      date: "Wed Dec 15 2021",
-      venue: "Press Club",
-      location: "San Francisco,CA",
-    },
-  ];
+import BandSiteApi from "./band-site-api.js";
+
+async function appendchild() {
+  const bandSiteApiObj = new BandSiteApi("d2a39b7e-6320-445e-b67c-86382e23e73");
+  const showsList = await bandSiteApiObj.getShows();
+
+  const shows = showsList.data.reduce((result, show) => {
+    result.push({
+      date: new Date(show.date).toDateString(),
+      venue: show.place,
+      location: show.location,
+    });
+    return result;
+  }, []);
 
   let ul;
   let li;
+  appendShows(shows, ul, li);
+}
+
+const appendShows = (shows, ul, li) => {
   shows.forEach((show) => {
     ul = document.querySelector("ul");
     li = document.createElement("li");
@@ -89,13 +84,13 @@ function appendchild() {
     div4.appendChild(button);
 
     li.appendChild(div4);
-
     ul.appendChild(li);
+    liSelected();
   });
-  console.log(li);
-  let li_selected = document.querySelectorAll(".show-time__list");
-  console.log("li_selected ", li_selected);
+};
 
+const liSelected = () => {
+  let li_selected = document.querySelectorAll(".show-time__list");
   li_selected.forEach((li_node) => {
     li_node.addEventListener("mouseover", () => {
       li_node.classList.add("show-time__list-selected");
@@ -107,5 +102,6 @@ function appendchild() {
       li_node.classList.add("show-time__list-selected");
     });
   });
-}
+};
+
 appendchild();

@@ -258,7 +258,7 @@ main .join-the-conv__authors {
   align-items: center;
 }
 main .join-the-conv__authors__new {
-  width: 48vw;
+  width: 50vw;
 }
 main .join-the-conv__authors__new p {
   width: 40%;
@@ -299,6 +299,11 @@ main .join-the-conv__authors__new button {
 main .join-the-conv__authors__new button:hover {
   background-color: black;
 }
+main .join-the-conv__authors__new .error-message {
+  color: red;
+  text-align: center;
+  font-weight: 600;
+}
 @media (max-width: 767px) {
   main .join-the-conv__authors__new {
     width: 100vw;
@@ -313,9 +318,14 @@ main .join-the-conv__authors__new button:hover {
   main .join-the-conv__authors__new button:hover {
     background-color: black;
   }
+  main .join-the-conv__authors__new .error-message {
+    color: red;
+    text-align: center;
+    font-weight: 600;
+  }
 }
 main .join-the-conv__authors__existing {
-  width: 48vw;
+  width: 50vw;
 }
 main .join-the-conv__authors__existing .author-list {
   width: 100%;
@@ -329,12 +339,12 @@ main .join-the-conv__authors__existing .author-list__img {
   border-radius: 50%;
 }
 main .join-the-conv__authors__existing .author-list .name-date {
-  width: 89%;
+  width: 70%;
 }
 main .join-the-conv__authors__existing .author-list .name-date__divide {
   display: flex;
   justify-content: space-between;
-  width: 82%;
+  width: 100%;
 }
 main .join-the-conv__authors__existing .author-list .name-date__divide p {
   font-size: 13px;
@@ -350,11 +360,33 @@ main .join-the-conv__authors__existing .author-list__comment {
   font-size: 13px;
   font-weight: 400;
   margin-top: 0%;
-  width: 80%;
+  width: 100%;
+}
+main .join-the-conv__authors__existing .author-list__button {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+main .join-the-conv__authors__existing .author-list__button button {
+  width: 100%;
+  background-color: #323232;
+  height: 2rem;
+  border-radius: 3%;
+  color: white;
+}
+main .join-the-conv__authors__existing .error-message {
+  color: red;
+  text-align: center;
+  font-weight: 600;
 }
 @media (max-width: 767px) {
   main .join-the-conv__authors__existing {
     width: 100vw;
+  }
+  main .join-the-conv__authors .error-message {
+    color: red;
+    text-align: center;
+    font-weight: 600;
   }
 }
 

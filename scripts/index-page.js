@@ -1,61 +1,42 @@
-const existing_author = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way,everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs- the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+import BandSiteApi from "./band-site-api.js";
 
+const bandSiteApiObj = new BandSiteApi("d2a39b7e-6320-445e-b67c-86382e23e73");
+let existing_author1 = await bandSiteApiObj.getComments();
 let author_new_form = document.querySelector(".authors-new-form");
 let ul = document.querySelector("ul");
-let ip = [];
+let nameCommentArray = [];
+let commentObj = {};
 
-author_new_form.addEventListener("submit", (event) => {
-  console.log("The name is : ", event.target.name.value);
-  console.log("The comment is : ", event.target.comment.value);
+author_new_form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   if (!event.target.name.value || !event.target.comment.value) {
     errorForm();
+    commentObj = {};
+    alert("Please add a comment and name");
   } else {
-    if (ip.length) {
-      ip.forEach((ip1) => ip1.classList.remove("contentfield"));
+    if (nameCommentArray.length) {
+      nameCommentArray.forEach((element) =>
+        element.classList.remove("contentfield")
+      );
     }
-
-    const new_author = {
+    commentObj = {
       name: event.target.name.value,
-      date:
-        new Date().getMonth() +
-        "/" +
-        new Date().getDate() +
-        "/" +
-        new Date().getFullYear(),
       comment: event.target.comment.value,
     };
-    existing_author.push(new_author);
+
+    const response = await bandSiteApiObj.postComments(commentObj);
+    existing_author1.push(response.data);
     event.target.name.value = "";
     event.target.comment.value = "";
     pushAuthor();
   }
 });
 
-pushAuthor = () => {
+let pushAuthor = () => {
   ul.innerHTML = "";
 
-  existing_author.forEach((element) => {
+  existing_author1.forEach((element) => {
     const li_element = document.createElement("li");
     li_element.classList.add("author-list");
 
@@ -75,7 +56,9 @@ pushAuthor = () => {
     div_element2.appendChild(p_element_name);
 
     const span_element_date = document.createElement("span");
-    span_element_date.innerText = element.date;
+    span_element_date.innerText = new Date(
+      element.timestamp
+    ).toLocaleDateString("en-US");
     div_element2.appendChild(span_element_date);
 
     div_element_name_date_comment.appendChild(div_element2);
@@ -86,14 +69,32 @@ pushAuthor = () => {
 
     div_element_name_date_comment.appendChild(p_element_comment);
     li_element.appendChild(div_element_name_date_comment);
+
+    const div_element_button = document.createElement("div");
+    div_element_button.classList.add("author-list__button");
+    let button_element = document.createElement("button");
+    button_element.innerHTML = "Delete";
+    div_element_button.appendChild(button_element);
+    li_element.appendChild(div_element_button);
+
+    div_element_name_date_comment.addEventListener("click", async function () {
+      await bandSiteApiObj.getLikes(element.id);
+    });
+
+    button_element.addEventListener("click", async () => {
+      const deleted_obj = await bandSiteApiObj.getDelete(element.id);
+      let index = existing_author1.indexOf(deleted_obj);
+      existing_author1.splice(index, 1);
+      pushAuthor();
+    });
     const hr_element = document.createElement("hr");
     ul.prepend(hr_element);
     ul.prepend(li_element);
   });
 };
-errorForm = () => {
-  ip = document.querySelectorAll("input");
-  ip.forEach((ip1) => ip1.classList.add("contentfield"));
+let errorForm = () => {
+  nameCommentArray = document.querySelectorAll("input");
+  nameCommentArray.forEach((element) => element.classList.add("contentfield"));
 };
 
 pushAuthor();
